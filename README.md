@@ -1,2 +1,2 @@
-# Atom Mail 2019 Electron
+# Atom Mail 2019
 
