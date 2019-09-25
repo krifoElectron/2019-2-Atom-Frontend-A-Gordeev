@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/2019-2-Atom-Frontend-A-Gordeev/static/css/main.b4eae362.chunk.css",
-    "main.js": "/2019-2-Atom-Frontend-A-Gordeev/static/js/main.c56ae1d8.chunk.js",
-    "main.js.map": "/2019-2-Atom-Frontend-A-Gordeev/static/js/main.c56ae1d8.chunk.js.map",
-    "runtime-main.js": "/2019-2-Atom-Frontend-A-Gordeev/static/js/runtime-main.c78e7aee.js",
-    "runtime-main.js.map": "/2019-2-Atom-Frontend-A-Gordeev/static/js/runtime-main.c78e7aee.js.map",
-    "static/js/2.932d236f.chunk.js": "/2019-2-Atom-Frontend-A-Gordeev/static/js/2.932d236f.chunk.js",
-    "static/js/2.932d236f.chunk.js.map": "/2019-2-Atom-Frontend-A-Gordeev/static/js/2.932d236f.chunk.js.map",
+    "main.js": "/2019-2-Atom-Frontend-A-Gordeev/static/js/main.8f6ca21c.chunk.js",
+    "main.js.map": "/2019-2-Atom-Frontend-A-Gordeev/static/js/main.8f6ca21c.chunk.js.map",
+    "runtime-main.js": "/2019-2-Atom-Frontend-A-Gordeev/static/js/runtime-main.ce002c05.js",
+    "runtime-main.js.map": "/2019-2-Atom-Frontend-A-Gordeev/static/js/runtime-main.ce002c05.js.map",
+    "static/js/2.ef1fd7d5.chunk.js": "/2019-2-Atom-Frontend-A-Gordeev/static/js/2.ef1fd7d5.chunk.js",
+    "static/js/2.ef1fd7d5.chunk.js.map": "/2019-2-Atom-Frontend-A-Gordeev/static/js/2.ef1fd7d5.chunk.js.map",
     "index.html": "/2019-2-Atom-Frontend-A-Gordeev/index.html",
-    "precache-manifest.d8df07bce8830e7dc4a2ad93406103e0.js": "/2019-2-Atom-Frontend-A-Gordeev/precache-manifest.d8df07bce8830e7dc4a2ad93406103e0.js",
+    "precache-manifest.7be3807327e35fac0366deb925395cdc.js": "/2019-2-Atom-Frontend-A-Gordeev/precache-manifest.7be3807327e35fac0366deb925395cdc.js",
     "service-worker.js": "/2019-2-Atom-Frontend-A-Gordeev/service-worker.js",
     "static/css/main.b4eae362.chunk.css.map": "/2019-2-Atom-Frontend-A-Gordeev/static/css/main.b4eae362.chunk.css.map",
     "static/media/logo.svg": "/2019-2-Atom-Frontend-A-Gordeev/static/media/logo.a55f1c43.svg"

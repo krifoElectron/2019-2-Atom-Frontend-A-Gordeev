@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/2019-2-Atom-Frontend-A-Gordeev/precache-manifest.d8df07bce8830e7dc4a2ad93406103e0.js"
+  "/2019-2-Atom-Frontend-A-Gordeev/precache-manifest.7be3807327e35fac0366deb925395cdc.js"
 );
 
 self.addEventListener('message', (event) => {
