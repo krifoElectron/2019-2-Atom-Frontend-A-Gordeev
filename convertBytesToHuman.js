@@ -23,7 +23,7 @@ export default function convertBytesToHuman(bytes) {
 
   let bytesCopy = bytes
 
-  const demensions = ['B', 'KB', 'GB', 'TB']
+  const demensions = ['B', 'KB', 'MB', 'GB', 'TB']
   let count = 0
 
   while (bytesCopy >= 1024) {
