@@ -25,6 +25,15 @@ nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
  */
 
 export default function nonUniqueElements(data) {
-  // your solution goes here
-  return data
+  return data.reduce((acc, item) => {
+    if (data.reduce((prev, elem) => {
+      if (item === elem) {
+        prev++;
+      }
+      return prev
+    }, -1)) {
+      acc.push(item);
+    }
+    return acc
+  }, [])
 }

@@ -19,5 +19,7 @@ correctSentence("Greetings, friends.") == "Greetings, friends."
 
 export default function correctSentence(text) {
   // your solution goes here
+  const maybeDot = (text.slice(text.length - 1)) !== '.' ? '.' : '';
+  text = text.slice(0, 1).toUpperCase() + text.slice(1) + maybeDot;
   return text;
 }
