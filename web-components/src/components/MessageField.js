@@ -64,21 +64,12 @@ constructor () {
   this._shadowRoot.appendChild(template.content.cloneNode(true));
   this.$form = this._shadowRoot.querySelector('form');
   this.$input = this._shadowRoot.querySelector('form-input');
-  // this.$message = this._shadowRoot.querySelector('.result');
   this.$form.addEventListener('submit', this._onSubmit.bind(this));
   this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
   let i = 1;
   while (localStorage.getItem(i)) {
     const message =JSON.parse(localStorage.getItem(i));
-    console.log(i, message, '1');
-    console.log(i, message.text, '1');
-    // const mess = document.createElement('div');
-    // mess.classList.add('mess-element');
-    // mess.innerHTML = localStorage.getItem(i);
-    // this.$form.insertAdjacentElement('beforebegin', mess);
     const mess2 = document.createElement('message-mess');
-    // mess2.classList.add('mess-element');
-    // mess2.innerHTML = localStorage.getItem(i);
     const messageTime = document.createElement('span');
     messageTime.setAttribute('slot', 'time');
     messageTime.textContent = message.time;
@@ -137,7 +128,6 @@ constructor () {
     this.$form.insertAdjacentElement('beforebegin', mess2);
 
     const idM =String(this._getIdMess());
-    console.log(idM, message, '2');
     localStorage.setItem(idM, JSON.stringify(message));
 
     this.$input.scrollIntoView(false);

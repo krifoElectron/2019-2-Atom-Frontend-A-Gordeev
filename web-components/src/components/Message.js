@@ -39,9 +39,6 @@ class Message extends HTMLElement {
     this._shadowRoot.appendChild(template.content.cloneNode(true));
     this.$text = this._shadowRoot.querySelector('.mess-text');
     this.$time = this._shadowRoot.querySelector('.mess-time');
-    // this.$text.textContent = "";
-    // const date = new Date();
-    // this.$time.textContent = `${date.getHours()}:${date.getMinutes()}`;
   }
 }
 customElements.define('message-mess', Message);
