@@ -1,4 +1,5 @@
 import './index.css';
 
 import './components/FormInput';
-import './components/MessageForm';
+import './components/MessageField';
+import './components/Message';
