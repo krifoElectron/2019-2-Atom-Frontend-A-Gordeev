@@ -19,3 +19,4 @@ deploy:
       - master
       - devel
       - hw_02
+      - hw_03
