@@ -37,8 +37,6 @@ class Message extends HTMLElement {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
-    // this.$text = this._shadowRoot.querySelector('.mess-text');
-    // this.$time = this._shadowRoot.querySelector('.mess-time');
   }
 }
 customElements.define('message-element', Message);

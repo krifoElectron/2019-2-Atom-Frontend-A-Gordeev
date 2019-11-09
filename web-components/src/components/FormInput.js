@@ -1,23 +1,23 @@
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
-        input {
-            font-size: 15px;
-            border: 0;
-            outline: none;
-            width: 100%; /*calc(100% - 2px);*/
-            padding: 5px 7px;
-        }
+      input {
+          font-size: 15px;
+          border: 0;
+          outline: none;
+          width: 100%; /*calc(100% - 2px);*/
+          padding: 5px 7px;
+      }
 
-        :host {
-            display: inline-block;
-            border: 1px solid rgba(25, 25, 25, 0.32);
-            border-left: 0;
-            border-right: 0;
-        }
+      :host {
+          display: inline-block;
+          border: 1px solid rgba(25, 25, 25, 0.32);
+          border-left: 0;
+          border-right: 0;
+      }
 
-        .clip {
-            margin-right: 5px;
+      .clip {
+          margin-right: 5px;
           }
     </style>
     <input type="text">

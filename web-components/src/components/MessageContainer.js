@@ -21,7 +21,7 @@ template.innerHTML = `
       background-color: #fffafa;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      
       justify-content: flex-end;
     }
     
@@ -45,28 +45,38 @@ template.innerHTML = `
       bottom: 0px;
       border: 7px solid transparent;
       border-left: 9px solid #ffdfcf;
-    }
-
-    .hat {
-      width: 100%;
-      background: #f19cbb;
-      height: 100px;
-      position: fixed;
-      top: 0;
-      z-index: 1;
-    }
-    
-    </style>
+    }    
+  </style>
   
-  <div class="hat"></div>
   <div class="container">
     <form class="mess-form">
       <form-input name="message-text" class="message-input" placeholder="Введите сообщеине"></form-input>
     </form>
+    <slot name="chat-id"></slot>
   </div>
 `;
 
-class MessageField extends HTMLElement {
+class MessageContainer extends HTMLElement {
+  connectedCallback() {
+    this.id = this.getAttribute('abc');
+
+    const messengerState = JSON.parse(localStorage.getItem('messengerState'));
+
+    this.chatId = messengerState.chats.findIndex((elem) => {
+      if (elem.id === Number(this.id)) {
+        return true;
+      }
+      return undefined;
+    });
+
+    if (localStorage.getItem('messengerState')) {
+      const message = JSON.parse(localStorage.getItem('messengerState'));
+      message.chats[this.chatId].messages.forEach((element) => {
+        this._createMessageElement(element);
+      });
+    }
+  }
+
   constructor() {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
@@ -75,12 +85,7 @@ class MessageField extends HTMLElement {
     this.$input = this._shadowRoot.querySelector('form-input');
     this.$form.addEventListener('submit', this._onSubmit.bind(this));
     this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
-    if (localStorage.getItem('messenegerState')) {
-      const message = JSON.parse(localStorage.getItem('messenegerState'));
-      message.chats[0].forEach((element) => {
-        this._createMessageElement(element);
-      });
-    }
+    this.$chatId = document.querySelector('span#chat-id');
   }
 
   _getIdMess() {
@@ -99,38 +104,21 @@ class MessageField extends HTMLElement {
 
     event.preventDefault();
 
-    let message = JSON.parse(localStorage.getItem('messenegerState'));
-
+    const messengerState = JSON.parse(localStorage.getItem('messengerState'));
     const { value } = this.$input;
     const date = new Date();
 
-    if (!message) {
-      message = {
-        chats: {
-          '0': [
-            {
-              sender: 'a',
-              recipient: 'b',
-              text: value,
-              date,
-              isRead: true,
-            },
-          ],
-        },
-      };
-    } else {
-      message.chats['0'].push({
-        sender: 'a',
-        recipient: 'b',
-        text: value,
-        date,
-      });
-    }
-    const len = message.chats[0].length;
-    this._createMessageElement(message.chats[0][len - 1]);
+    messengerState.chats[this.chatId].messages.push({
+      direction: 'fromMe',
+      text: value,
+      date,
+      isRead: true,
+    });
 
-    localStorage.setItem('messenegerState', JSON.stringify(message));
+    const len = messengerState.chats[this.chatId].messages.length;
+    this._createMessageElement(messengerState.chats[this.chatId].messages[len - 1]);
 
+    localStorage.setItem('messengerState', JSON.stringify(messengerState));
     this.$input.value = '';
     this.$input.scrollIntoView(false);
   }
@@ -163,4 +151,4 @@ class MessageField extends HTMLElement {
   }
 }
 
-customElements.define('message-container', MessageField);
+customElements.define('message-container', MessageContainer);
