@@ -1,9 +1,14 @@
+import AvatarIcon from '../../img/avatar.jpeg';
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
     .chat-container {
+      color: black;
       display: flex;
+      flex-direction: column;
       justify-content: flex-start;
+      margin-top: 60px;
     }
 
     .avatar {
@@ -12,7 +17,6 @@ template.innerHTML = `
     }
     
   </style>
-  
   <div class="chat-container"></div>
 `;
 
@@ -21,7 +25,7 @@ class ChatList extends HTMLElement {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
-    this.$main = this._shadowRoot.querySelector('div.chat-container');
+    this.$main = this._shadowRoot.querySelector('.chat-container');
 
     if (localStorage.getItem('messengerState')) {
       const messengerState = JSON.parse(localStorage.getItem('messengerState'));
@@ -40,7 +44,7 @@ class ChatList extends HTMLElement {
     const avatar = document.createElement('span');
     avatar.setAttribute('slot', 'avatar');
     const image = document.createElement('img');
-    image.setAttribute('src', '../../img/avatar.jpeg');
+    image.setAttribute('src', AvatarIcon);
     image.setAttribute('class', 'avatar');
     avatar.appendChild(image);
     chatElement.appendChild(avatar);
@@ -59,7 +63,7 @@ class ChatList extends HTMLElement {
     rightBlock.textContent = this._dateToTime(date);
     chatElement.appendChild(rightBlock);
 
-    this.$main.insertAdjacentElement('beforebegin', chatElement);
+    this.$main.appendChild(chatElement);
   }
 
   _dateToTime(date) {

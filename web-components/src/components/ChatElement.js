@@ -5,7 +5,7 @@ template.innerHTML = `
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin-top: 10px;
+      padding: 10px;
     }
     
     .right-block {
@@ -33,6 +33,26 @@ template.innerHTML = `
       font-size: 14px;
       color: gray;
     }
+
+    .chat-element-container:hover, .chat-element-container:active {
+      background-color: #f18caa;
+    }
+
+    .chat-element-container {
+      animation-duration: 2s;
+      animation-name: slidein;
+    }
+    
+    @keyframes slidein {
+      from {
+        padding-left: 100%;
+      }
+    
+      to {
+        padding-left: 10px;
+      }
+    }
+
   </style>
   
   <div class="chat-element-container">
