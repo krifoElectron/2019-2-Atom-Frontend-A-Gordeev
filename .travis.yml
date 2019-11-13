@@ -20,3 +20,4 @@ deploy:
       - devel
       - hw_02
       - hw_03
+      - hw_04

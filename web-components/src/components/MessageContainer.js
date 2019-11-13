@@ -16,17 +16,18 @@ template.innerHTML = `
     }
 
     .container {
+      color: black;
       box-sizing: border-box;
       padding: 0;
       background-color: #fffafa;
       display: flex;
       flex-direction: column;
-      
+      padding-top: 60px;
       justify-content: flex-end;
     }
     
     message-element {
-      background-color: #ffdfcf; /*#ffc0cb;*/
+      background-color: #ffdfcf;
       border-radius: 5px;
       margin: 10px;
       margin-right: 12px;
@@ -45,14 +46,29 @@ template.innerHTML = `
       bottom: 0px;
       border: 7px solid transparent;
       border-left: 9px solid #ffdfcf;
-    }    
+    }
+    
+    .animation {
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+      animation-name: slidein;
+    }
+    
+    @keyframes slidein {
+      from {
+        margin-right: 40%;
+      }
+    
+      to {
+        margin-right: 12px;
+      }
+    }
   </style>
   
   <div class="container">
     <form class="mess-form">
       <form-input name="message-text" class="message-input" placeholder="Введите сообщеине"></form-input>
     </form>
-    <slot name="chat-id"></slot>
   </div>
 `;
 
@@ -81,11 +97,11 @@ class MessageContainer extends HTMLElement {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$main = this._shadowRoot.querySelector('.container');
     this.$form = this._shadowRoot.querySelector('form');
     this.$input = this._shadowRoot.querySelector('form-input');
     this.$form.addEventListener('submit', this._onSubmit.bind(this));
     this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
-    this.$chatId = document.querySelector('span#chat-id');
   }
 
   _getIdMess() {
@@ -130,6 +146,8 @@ class MessageContainer extends HTMLElement {
     const formatedTime = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
 
     const messageElement = document.createElement('message-element');
+    messageElement.classList.add('animation');
+    messageElement.addEventListener('animationend', this._listener, false);
 
     const messageText = document.createElement('span');
     messageText.setAttribute('slot', 'message');
@@ -147,6 +165,12 @@ class MessageContainer extends HTMLElement {
   _onKeyPress(event) {
     if (event.keyCode === 13) {
       this.$form.dispatchEvent(new Event('submit'));
+    }
+  }
+
+  _listener(e) {
+    if (e.type === 'animationend') {
+      this.classList.remove('animation');
     }
   }
 }

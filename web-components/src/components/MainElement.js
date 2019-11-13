@@ -1,32 +1,40 @@
+import AvatarIcon from '../../img/avatar.jpeg';
+
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
   .container {
       box-sizing: border-box;
-      padding: 0;
       background-color: #fffafa;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      justify-content: flex-start;
       min-height: 100vh;
     }
     
     .center-block {
       font-size: 25px;
+      display: flex;
     }
 
+    .last {
+      font-size: 12px;
+    }
+
+    .avatar {
+      border-radius: 50%;
+      height: 35px;
+      margin-right: 5px;
+    }
+    
     .hat {
       padding-top: 15px;
       display: flex;
-      flex-flow: row wrap;
       justify-content: space-between;
       width: 100%;
       background: #f19cbb;
-      height: 40px;
-      /* position: fixed;
-      top: 0;
-      z-index: 1; */
+      height: 45px;
+      position: fixed;
+      z-index: 1000;
   }
 
   .menu-button, .back-button {
@@ -41,12 +49,55 @@ template.innerHTML = `
     right: 15px;
   }
 
+  .new-mess-button:hover {
+    box-shadow: inset #aaa 0 0 40px 10px,
+	                  #aaa 0 0 24px 12px;
+  }
+
+  .hat-button {
+    cursor: pointer;
+    margin-top: 5px;
+  }
+
+  .hat-button:active {
+    box-shadow: inset #f18caa 0 0 40px 10px,
+    #f18caa 0 0 24px 12px;
+  }
+
+  .new-mess-button {
+    border-radius: 50%;
+    background: #cca92c;
+    cursor: pointer;
+    box-shadow: 0 0 0 rgba(204,169,44, 0.9);
+    animation: pulse 2s infinite;
+  }
+  
+  .new-mess-button:hover {
+    animation: none;
+  }
+  
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+      box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
+    }
+    70% {
+        -moz-box-shadow: 0 0 0 20px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 20px rgba(204,169,44, 0);
+    }
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+  }
+
   </style>
 
   <div class="container" id="main">
+    <div></div>
     <div class="hat">
       <div class="left-block">
-        <svg class="menu-button" fill="#fff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <svg class="menu-button hat-button" fill="#fff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           width="25px" height="25px" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve">
             <path d="M604.267,194.727c4.257,0,7.733-3.644,7.733-7.733v-40.169c0-4.256-3.283-7.733-7.733-7.733H7.733
               c-4.256,0-7.733,3.644-7.733,7.733v40.169c0,4.256,3.283,7.733,7.733,7.733H604.267z"/>
@@ -55,7 +106,7 @@ template.innerHTML = `
             <path d="M0,465.175c0,4.256,3.283,7.733,7.733,7.733h596.533c4.256,0,7.733-3.645,7.733-7.733v-40.169
           c0-4.256-3.283-7.732-7.733-7.732H7.733c-4.256,0-7.733,3.644-7.733,7.732V465.175z"/>
         </svg>
-        <svg class="back-button" style="display: none" fill="#fff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <svg class="back-button hat-button" style="display: none" fill="#fff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	        width="25px" height="25px" viewBox="0 0 400.004 400.004" style="enable-background:new 0 0 400.004 400.004;"
 	        xml:space="preserve"><g><path d="M382.688,182.686H59.116l77.209-77.214c6.764-6.76,6.764-17.726,0-24.485c-6.764-6.764-17.73-6.764-24.484,0L5.073,187.757
 	        c-6.764,6.76-6.764,17.727,0,24.485l106.768,106.775c3.381,3.383,7.812,5.072,12.242,5.072c4.43,0,8.861-1.689,12.242-5.072
@@ -67,8 +118,8 @@ template.innerHTML = `
         Messenger
       </div>
       <div class="right-block">
-        <svg class="search-button" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="30" height="30"><path fill="#263238" fill-opacity=".3" d="M15.009 13.805h-.636l-.22-.219a5.184 5.184 0 0 0 1.256-3.386 5.207 5.207 0 1 0-5.207 5.208 5.183 5.183 0 0 0 3.385-1.255l.221.22v.635l4.004 3.999 1.194-1.195-3.997-4.007zm-4.808 0a3.605 3.605 0 1 1 0-7.21 3.605 3.605 0 0 1 0 7.21z"></path></svg>
-        <svg style="display: none" class="options-button" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="30" height="30"><path fill="#263238" fill-opacity=".6" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
+        <svg class="search-button hat-button" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="30" height="30"><path fill="#263238" fill-opacity=".3" d="M15.009 13.805h-.636l-.22-.219a5.184 5.184 0 0 0 1.256-3.386 5.207 5.207 0 1 0-5.207 5.208 5.183 5.183 0 0 0 3.385-1.255l.221.22v.635l4.004 3.999 1.194-1.195-3.997-4.007zm-4.808 0a3.605 3.605 0 1 1 0-7.21 3.605 3.605 0 0 1 0 7.21z"></path></svg>
+        <svg style="display: none" class="options-button hat-button" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="30" height="30"><path fill="#263238" fill-opacity=".6" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
       </div>
     </div> 
     
@@ -190,7 +241,21 @@ class ManiElement extends HTMLElement {
 
       this.$main.appendChild(messageContainer);
 
-      this.$centerBlock.textContent = currentChat.interlocutor;
+      this.$centerBlock.textContent = '';
+      const image = document.createElement('img');
+      image.setAttribute('src', AvatarIcon);
+      image.classList.add('avatar');
+      this.$centerBlock.appendChild(image);
+
+      const nameAndLast = document.createElement('div');
+      const name = document.createElement('div');
+      name.textContent = currentChat.interlocutor;
+      const last = document.createElement('div');
+      last.textContent = 'был 5 часов назад';
+      last.classList.add('last');
+      nameAndLast.appendChild(name);
+      nameAndLast.appendChild(last);
+      this.$centerBlock.appendChild(nameAndLast);
 
       this.$optionsButton.style.display = '';
 
