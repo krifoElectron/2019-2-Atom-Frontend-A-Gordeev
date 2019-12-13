@@ -6,7 +6,7 @@ template.innerHTML = `
       display: flex;
       flex-direction: row;
     }
-    
+
     .result {
       color: black;
     }
@@ -25,46 +25,24 @@ template.innerHTML = `
       padding-top: 60px;
       justify-content: flex-end;
     }
-    
-    message-element {
-      background-color: #ffdfcf;
-      border-radius: 5px;
-      margin: 10px;
-      margin-right: 12px;
-      padding: 5px;
-      display: flex;
-      flex-direction: column;
-      align-self: flex-end;
-      position: relative;
-      max-width: 60%;
-    }
 
-    message-element::after {
-      content: '';
-      position: absolute;
-      right: -12px;
-      bottom: 0px;
-      border: 7px solid transparent;
-      border-left: 9px solid #ffdfcf;
-    }
-    
     .animation {
       animation-duration: 1.5s;
       animation-fill-mode: forwards;
       animation-name: slidein;
     }
-    
+
     @keyframes slidein {
       from {
         margin-right: 40%;
       }
-    
+
       to {
         margin-right: 12px;
       }
     }
   </style>
-  
+
   <div class="container">
     <form class="mess-form">
       <form-input name="message-text" class="message-input" placeholder="Введите сообщеине"></form-input>
