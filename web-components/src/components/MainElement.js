@@ -8,9 +8,10 @@ template.innerHTML = `
       background-color: #fffafa;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       min-height: 100vh;
     }
-    
+
     .center-block {
       font-size: 25px;
       display: flex;
@@ -25,7 +26,7 @@ template.innerHTML = `
       height: 35px;
       margin-right: 5px;
     }
-    
+
     .hat {
       padding-top: 15px;
       display: flex;
@@ -71,11 +72,11 @@ template.innerHTML = `
     box-shadow: 0 0 0 rgba(204,169,44, 0.9);
     animation: pulse 2s infinite;
   }
-  
+
   .new-mess-button:hover {
     animation: none;
   }
-  
+
   @keyframes pulse {
     0% {
       -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0.4);
@@ -113,7 +114,7 @@ template.innerHTML = `
 		      c6.764-6.76,6.764-17.726,0-24.484l-77.209-77.218h323.572c9.562,0,17.316-7.753,17.316-17.315
           C400.004,190.438,392.251,182.686,382.688,182.686z"/>
           </svg>
-      </div>    
+      </div>
       <div class="center-block">
         Messenger
       </div>
@@ -121,8 +122,8 @@ template.innerHTML = `
         <svg class="search-button hat-button" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="30" height="30"><path fill="#263238" fill-opacity=".3" d="M15.009 13.805h-.636l-.22-.219a5.184 5.184 0 0 0 1.256-3.386 5.207 5.207 0 1 0-5.207 5.208 5.183 5.183 0 0 0 3.385-1.255l.221.22v.635l4.004 3.999 1.194-1.195-3.997-4.007zm-4.808 0a3.605 3.605 0 1 1 0-7.21 3.605 3.605 0 0 1 0 7.21z"></path></svg>
         <svg style="display: none" class="options-button hat-button" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="30" height="30"><path fill="#263238" fill-opacity=".6" d="M12 7a2 2 0 1 0-.001-4.001A2 2 0 0 0 12 7zm0 2a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 9zm0 6a2 2 0 1 0-.001 3.999A2 2 0 0 0 12 15z"></path></svg>
       </div>
-    </div> 
-    
+    </div>
+
     <chat-list></chat-list>
 
     <svg class="new-mess-button" width="55" height="55" id="Layer_1" style="enable-background:new 0 0 128 128;" version="1.1" viewBox="0 0 128 128" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">.st0{fill:#4D4D4D;}.st1{fill:#FFFFFF;}</style><circle class="st0" cx="64" cy="64" r="64"/><g><path class="st1" d="M87.4,50.5l9.9-9.9c0.4-0.4,0.4-1,0-1.4l-8.5-8.5c-0.4-0.4-1-0.4-1.4,0l-9.9,9.9L87.4,50.5z"/><path class="st1" d="M74.6,43.5L38,80.1l-4.4,13c-0.3,0.8,0.5,1.5,1.3,1.3l13-4.4l36.6-36.6L74.6,43.5z"/></g></svg>

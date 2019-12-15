@@ -1,0 +1,17 @@
+$container-bg-color: (255, 250, 250);
+$black-color: (0, 0, 0);
+
+.container {
+  color: $black-color;
+  box-sizing: border-box;
+  background-color: $container-bg-color;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 0 0;
+  justify-content: flex-end;
+  flex-grow: 2;
+}
+
+.result {
+  color: var(--black-color);
+}

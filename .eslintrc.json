@@ -30,8 +30,6 @@
     "DEBUG": false
   },
   "rules": {
-    "no-underscore-dangle": 0,
-    "semi": ["error", "always"],
     "import/no-named-as-default": 0,
     "react/jsx-filename-extension": [
       1,
@@ -43,6 +41,11 @@
     "import/no-unresolved": 0,
     "import/extensions": 0,
     "import/prefer-default-export": 0,
-    "import/first": 0
+    "import/first": 0,
+    "indent": ["error", "tab", { "SwitchCase": 1 }],
+    "no-tabs": ["error", { "allowIndentationTabs": true }],
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "no-mixed-spaces-and-tabs": "error"
   }
 }
