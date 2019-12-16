@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ReadMessageIcon } from './ReadMessageIcon';
+import { ReadMessageIcon } from '../ReadMessageIcon/ReadMessageIcon';
 
-import styles from '../styles/messageElement.module.scss';
+import styles from './messageElement.module.scss';
 
 export function MessageElement({ date, text }) {
   return (

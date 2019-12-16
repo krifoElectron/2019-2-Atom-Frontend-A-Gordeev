@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { AttachButton } from '../buttons/AttachButton';
+import { AttachButton } from '../../buttons/AttachButton/AttachButton';
 
-import styles from '../styles/formInput.module.scss';
+import styles from './formInput.module.scss';
 
 export function FormInput({ chatIndex, addMessage }) {
   const [inputText, setInputText] = useState('');

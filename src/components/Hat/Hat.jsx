@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { MenuButton } from '../buttons/MenuButton';
+import { MenuButton } from '../../buttons/MenuButton/MenuButton';
 // import BackButton from '../buttons/BackButton';
-import { SearchButton } from '../buttons/SearchButton';
+import { SearchButton } from '../../buttons/SearchButton/SearchButton';
 
-import styles from '../styles/app.module.scss';
+import styles from '../App/app.module.scss';
 
 export function Hat({ leftComponent, centerComponent, rightComponent }) {
   console.log(200000);

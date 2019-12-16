@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/attachButton.module.scss';
+import styles from './attachButton.module.scss';
 
 export function AttachButton() {
   return (

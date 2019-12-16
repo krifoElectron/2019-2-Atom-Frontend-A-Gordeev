@@ -1,0 +1,9 @@
+$red-color: rgb(255, 0, 0);
+
+.notFound {
+	color: $red-color;
+	padding: 20px;
+	font-size: 40px;
+	display: flex;
+	align-items: center;
+}
