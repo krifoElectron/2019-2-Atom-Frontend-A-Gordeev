@@ -1,0 +1,42 @@
+$black-color: rgb(0, 0, 0);
+$form-element-bg-color: rgb(241, 156, 187);
+$border-color: rgb(150, 0, 205);
+$gray-color: rgb(128, 128, 128);
+$input-text-color: rgb(255, 255, 255);
+$main-bg-color: rgb(255, 250, 250);
+
+.container {
+	display: flex;
+	flex-direction: column;
+	margin: 10px 30px;
+}
+
+.formElement {
+	background-color: $form-element-bg-color;
+	display: flex;
+	flex-direction: column;
+	margin: 15px;
+
+	label {
+		color: $gray-color;
+		padding: 5px 0 5px 5px;
+		font-size: 16px;
+	}
+
+	input {
+		color: $input-text-color;
+		padding: 10px 0 10px 10px;
+		border-style: solid;
+		border-color: $border-color;
+		border-width: 0 0 2px 0;
+		background-color: $form-element-bg-color;
+		font-size: 25px;
+	}
+}
+
+.bottomText {
+	color: $gray-color;
+	font-size: 16px;
+	padding: 5px 0 0 10px;
+	background-color: $main-bg-color;
+}

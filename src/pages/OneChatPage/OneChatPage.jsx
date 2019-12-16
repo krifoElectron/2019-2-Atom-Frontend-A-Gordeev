@@ -1,21 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Hat } from '../components/Hat';
-import { MessageContainer } from '../containers/MessageContainer';
-import { BackButton } from '../buttons/BackButton';
-import { SearchButton } from '../buttons/SearchButton';
-import { FormInput } from '../components/FormInput';
-import { OptionsButton } from '../buttons/OptionsButton';
+import { Hat } from '../../components/Hat/Hat';
+import { MessageContainer } from '../../containers/MessageContainer/MessageContainer';
+import { BackButton } from '../../buttons/BackButton/BackButton';
+import { SearchButton } from '../../buttons/SearchButton/SearchButton';
+import { FormInput } from '../../components/FormInput/FormInput';
+import { OptionsButton } from '../../buttons/OptionsButton/OptionsButton';
 
-import styles from '../styles/app.module.scss';
-import AvatarIcon from '../img/avatar.jpeg';
+import styles from '../../components/App/app.module.scss';
+import AvatarIcon from '../../img/avatar.jpeg';
+import {getIndexByChathId} from '../../utils/chats/indexById';
 
-export const OneChatPage = ({ messages, addMessage, comeBackToChats, chatIndex, interlocutor }) => {
+export const OneChatPage = ({ addMessage, chats, match }) => {
+	const chatIndex = getIndexByChathId(+match.params.chatId, chats);
+	const { messages, interlocutor } = chats[chatIndex];
+	console.log({chatIndex});
+
   return (
     <div className={styles.mainContainer}>
       <Hat
-        leftComponent={() => <BackButton comeBackToChats={comeBackToChats} />}
+        leftComponent={() => <BackButton />}
         centerComponent={() => (
           <div className={styles.centerBlock}>
             <img className={styles.avatar} src={AvatarIcon} alt='avatar'/>
@@ -44,14 +49,14 @@ OneChatPage.defaultProps = {
   messages: [],
   addMessage: () => {},
   comeBackToChats: () => {},
-  chatIndex: 0,
   interlocutor: '',
+	match: {params: {chatId: 123}}
 };
 
 OneChatPage.propTypes = {
   messages: PropTypes.arrayOf(PropTypes.object),
   addMessage: PropTypes.func,
   comeBackToChats: PropTypes.func,
-  chatIndex: PropTypes.number,
   interlocutor: PropTypes.string,
+	match: PropTypes.checkPropTypes()
 };

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { MessageElement } from '../components/MessageElement';
-import { convertDateToTime } from '../utils/date/convertDateToTime';
+import { MessageElement } from '../../components/MessageElement/MessageElement';
+import { convertDateToTime } from '../../utils/date/convertDateToTime';
 
-import styles from '../styles/messageContainer.module.scss';
+import styles from './messageContainer.module.scss';
 
 export function MessageContainer({ messages }) {
   return (

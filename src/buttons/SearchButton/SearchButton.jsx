@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/app.module.scss';
+import styles from '../../components/App/app.module.scss';
 
 export function SearchButton() {
   return (

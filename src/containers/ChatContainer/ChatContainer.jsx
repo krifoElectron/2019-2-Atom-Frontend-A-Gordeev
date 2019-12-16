@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ChatElement } from '../components/ChatElement';
-import { convertDateToTime } from '../utils/date/convertDateToTime';
+import { ChatElement } from '../../components/ChatElement/ChatElement';
+import { convertDateToTime } from '../../utils/date/convertDateToTime';
 
-import styles from '../styles/chatContainer.module.scss';
+import styles from './chatContainer.module.scss';
 
 export function ChatContainer({ chatInfo, onClick }) {
   console.log({ chatInfo });
@@ -15,6 +15,7 @@ export function ChatContainer({ chatInfo, onClick }) {
         const { text, date } = messages[0];
         return (
           <ChatElement
+						chatId={id}
             name={interlocutor}
             lastMessage={text}
             date={convertDateToTime(date)}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../styles/newMessageButton.module.scss';
+import styles from './newMessageButton.module.scss';
 
 export function NewMessageButton() {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Hat } from '../components/Hat';
-import { ChatContainer } from '../containers/ChatContainer';
-import { NewMessageButton } from '../buttons/NewMessageButton';
+import { Hat } from '../../components/Hat/Hat';
+import { ChatContainer } from '../../containers/ChatContainer/ChatContainer';
+import { NewMessageButton } from '../../buttons/NewMessageButton/NewMessageButton';
 
 export const ChatsPage = ({ chatInfo, onClick }) => {
   return (
