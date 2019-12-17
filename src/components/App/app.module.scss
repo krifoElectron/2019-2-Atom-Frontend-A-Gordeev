@@ -1,0 +1,105 @@
+:root {
+  --hat-bg-color: rgb(241, 156, 187);
+  --new-mess-btn-color: rgb(204, 169, 0.4);
+  --hat-btn-active-color: rgb(241, 140, 170);
+  --shadow-color: rgba(204, 150, 38, 0.7);
+  --gray-color: rgba(128, 128, 128);
+}
+
+$main-bg-color: rgb(255, 250, 250);
+
+.mainContainer {
+  background-color: $main-bg-color;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.interlayer {
+  background-color: $main-bg-color;
+  width: 100%;
+  height: 55px;
+}
+
+.centerBlock {
+  display: flex;
+}
+
+.rightBlock {
+	display: flex;
+}
+
+.nameAndMess {
+  text-align: center;
+}
+
+.last {
+  font-size: 12px;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 35px;
+  margin-right: 5px;
+}
+
+.hat {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--hat-bg-color);
+  height: 45px;
+  position: fixed;
+  z-index: 1000;
+  font-size: 25px;
+}
+
+.menuButton,
+.backButton {
+  position: relative;
+  margin: 10px 10px 0;
+}
+
+.newMessButton {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  border-radius: 50%;
+  background-color: var(--new-mess-btn-color);
+  cursor: pointer;
+  box-shadow: 0 0 0 var(--shadow-color);
+  animation: pulse 2s infinite;
+
+  &:hover,
+  &:focus {
+    animation: none;
+    box-shadow: inset var(--gray-color) 0 0 40px 10px, var(--gray-color) 0 0 24px 12px;
+  }
+}
+
+.hatButton {
+  cursor: pointer;
+  margin-top: 5px;
+
+  &:active {
+    box-shadow: inset var(--hat-btn-active-color) 0 0 40px 10px, var(--hat-btn-active-color) 0 0 24px 12px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--new-mess-btn-color);
+  }
+
+  70% {
+    box-shadow: 0 0 0 20px var(--new-mess-btn-color);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 var(--new-mess-btn-color);
+  }
+}

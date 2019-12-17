@@ -17,4 +17,4 @@ deploy:
     branch:
       - master
       - devel
-      - hw_05
+      - hw_06

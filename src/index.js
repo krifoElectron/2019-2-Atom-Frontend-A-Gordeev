@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 import './styles/globalStyles.scss';
 
-import { App } from './components/App';
+import { App } from './components/App/App';
 
 localStorage.clear();
 localStorage.setItem(
