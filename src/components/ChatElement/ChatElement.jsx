@@ -11,7 +11,6 @@ import AvatarIcon from '../../img/avatar.jpeg';
 export function ChatElement({ name, lastMessage, date, onClick, chatId }) {
   return (
   	<Link to={`/chats/${chatId}`} className={styles.chatElementContainer}>
-			{/*<div className={styles.chatElementContainer} onClick={onClick}>*/}
 					<div className={styles.leftBlock}>
 						<img className={styles.avatar} src={AvatarIcon} alt='avatar'/>
 					</div>
@@ -23,7 +22,6 @@ export function ChatElement({ name, lastMessage, date, onClick, chatId }) {
 						{date}
 						<UnreadMessageIcon />
 					</div>
-			{/*</div>*/}
 		</Link>
   );
 }
@@ -33,7 +31,6 @@ ChatElement.defaultProps = {
   lastMessage: '',
   date: '',
   onClick: () => {},
-	linkTo: ''
 };
 
 ChatElement.propTypes = {
@@ -41,5 +38,4 @@ ChatElement.propTypes = {
   lastMessage: PropTypes.string,
   date: PropTypes.string,
   onClick: PropTypes.func,
-	linkTo: PropTypes.string
 };

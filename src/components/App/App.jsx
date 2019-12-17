@@ -22,34 +22,8 @@ export function App({ initialState }) {
   console.log(messengerState);
   console.log(getIndexByChathId(pageState.chatId, messengerState.chats));
   return (
-		<Router>
+		<Router basename="/2019-2-Atom-Frontend-A-Gordeev">
 			<div className={styles.mainContainer}>
-			{/*	<Route path='/' component={OneChatPage}/>*/}
-
-      {/*{pageState.isChatsPage ? (*/}
-			{/*	<ChatsPage*/}
-			{/*		chatInfo={messengerState.chats}*/}
-			{/*		onClick={(chatId) => {*/}
-			{/*			console.log(chatId);*/}
-			{/*			setPageState({ isChatsPage: false, chatId });*/}
-			{/*		}}*/}
-			{/*	/>*/}
-      {/*) : (*/}
-      {/*  <OneChatPage*/}
-      {/*    interlocutor={messengerState.chats[getIndexByChathId(pageState.chatId, messengerState.chats)].interlocutor}*/}
-      {/*    chatIndex={getIndexByChathId(pageState.chatId, messengerState.chats)}*/}
-      {/*    messages={messengerState.chats[getIndexByChathId(pageState.chatId, messengerState.chats)].messages}*/}
-      {/*    addMessage={() => {*/}
-      {/*      const newState = JSON.parse(localStorage.getItem('messengerState'));*/}
-      {/*      setMessengerState(newState);*/}
-      {/*    }}*/}
-      {/*    comeBackToChats={() => {*/}
-      {/*      setPageState({ isChatsPage: true, chatId: 0 });*/}
-      {/*    }}*/}
-      {/*  />*/}
-      {/*)}*/}
-
-
 				<Switch>
 					<Route path="/" exact>
 						<ChatsPage

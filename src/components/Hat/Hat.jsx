@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { MenuButton } from '../../buttons/MenuButton/MenuButton';
-// import BackButton from '../buttons/BackButton';
 import { SearchButton } from '../../buttons/SearchButton/SearchButton';
 
 import styles from '../App/app.module.scss';

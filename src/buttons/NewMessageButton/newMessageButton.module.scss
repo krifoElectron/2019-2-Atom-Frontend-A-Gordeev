@@ -1,21 +1,12 @@
 $shadow-color: rgba(204, 169, 44, 0.9);
 $bg-color: rgb(204, 169, 44);
 $box-shadow-color: rgb(170, 170, 170);
-$st0-color: rgb(77, 77, 77);
-$st1-color: rgb(255, 255, 255);
 $pulse1-color: rgba(204, 169, 44, 0.7);
 $pulse2-color: rgba(204, 169, 44, 0.4);
 $pulse3-color: rgba(204, 169, 44, 0);
 
-.st0 {
-  fill: $st0-color;
-}
-
-.st1 {
-  fill: $st1-color;
-}
-
 .newMessButton {
+	height: 55px;
   position: fixed;
   bottom: 15px;
   right: 15px;

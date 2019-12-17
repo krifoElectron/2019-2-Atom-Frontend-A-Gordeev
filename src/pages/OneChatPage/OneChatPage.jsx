@@ -32,7 +32,7 @@ export const OneChatPage = ({ addMessage, chats, match }) => {
         )}
         rightComponent={() => {
           return (
-            <div>
+            <div className={styles.rightBlock}>
               <SearchButton />
               <OptionsButton />
             </div>
