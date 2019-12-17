@@ -6,21 +6,17 @@ import { convertDateToTime } from '../../utils/date/convertDateToTime';
 
 import styles from './chatContainer.module.scss';
 
-export function ChatContainer({ chatInfo, onClick }) {
-  console.log({ chatInfo });
+export function ChatContainer({ chatInfo }) {
   return (
     <div className={styles.chatContainer}>
-      {chatInfo.map(({ interlocutor, messages, id }) => {
-        console.log(interlocutor, messages);
-        const { text, date } = messages[0];
+      {chatInfo.map(({ name, chatId, lastMessage, date }) => {
         return (
           <ChatElement
-						chatId={id}
-            name={interlocutor}
-            lastMessage={text}
+            chatId={chatId}
+            name={name}
+            lastMessage={lastMessage}
             date={convertDateToTime(date)}
-            key={id}
-            onClick={() => onClick(id)}
+            key={chatId}
           />
         );
       })}
@@ -30,10 +26,8 @@ export function ChatContainer({ chatInfo, onClick }) {
 
 ChatContainer.defaultProps = {
   chatInfo: [{}],
-  onClick: () => {},
 };
 
 ChatContainer.propTypes = {
   chatInfo: PropTypes.arrayOf(PropTypes.object),
-  onClick: PropTypes.func,
 };
