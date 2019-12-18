@@ -10,7 +10,7 @@ export function MessageContainer({ messages }) {
   return (
     <div className={styles.container}>
       {messages.map(({ text, addedAt }) => {
-        return <MessageElement text={text} date={convertDateToTime(addedAt)} key={addedAt} />;
+        return <MessageElement text={text} date={convertDateToTime(addedAt)} key={addedAt} toMe={true}/>;
       })}
     </div>
   );

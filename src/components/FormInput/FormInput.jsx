@@ -5,8 +5,24 @@ import { AttachButton } from '../../buttons/AttachButton/AttachButton';
 
 import styles from './formInput.module.scss';
 
-export function FormInput({ chatIndex, addMessage }) {
+export function FormInput({ chatId, userId, onSend }) {
   const [inputText, setInputText] = useState('');
+
+  const sendMessage = async (text) => {
+    console.log(userId);
+    await fetch(`http://localhost:3000/chats/send_message/`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({user_id: userId, chat_id: chatId, text})
+    })
+    .then((res) => res.json())
+		.then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <form
@@ -14,8 +30,10 @@ export function FormInput({ chatIndex, addMessage }) {
       onSubmit={(e) => {
         e.preventDefault();
         if (inputText !== '') {
-          sendMessageToLocalStorage(inputText, chatIndex);
-          addMessage(inputText);
+          sendMessage(inputText);
+          onSend()
+          // sendMessageToLocalStorage(inputText, chatIndex);
+          // addMessage(inputText);
           setInputText('');
         }
       }}
@@ -35,26 +53,28 @@ export function FormInput({ chatIndex, addMessage }) {
   );
 }
 
-const sendMessageToLocalStorage = (message, chatIndex) => {
-  const messengerState = JSON.parse(localStorage.getItem('messengerState'));
-  const date = new Date();
+// const sendMessageToLocalStorage = (message, chatIndex) => {
+//   const messengerState = JSON.parse(localStorage.getItem('messengerState'));
+//   const date = new Date();
 
-  messengerState.chats[chatIndex].messages.push({
-    direction: 'fromMe',
-    text: message,
-    date,
-    isRead: true,
-  });
+//   messengerState.chats[chatIndex].messages.push({
+//     direction: 'fromMe',
+//     text: message,
+//     date,
+//     isRead: true,
+//   });
 
-  localStorage.setItem('messengerState', JSON.stringify(messengerState));
-};
+//   localStorage.setItem('messengerState', JSON.stringify(messengerState));
+// };
 
 FormInput.defaultProps = {
-  chatIndex: 0,
-  addMessage: () => {},
+  chatId: '',
+  // addMessage: () => {},
+  onSend: () => {},
 };
 
 FormInput.propTypes = {
-  chatIndex: PropTypes.number,
-  addMessage: PropTypes.func,
+  chatId: PropTypes.string,
+  // addMessage: PropTypes.func,
+  onSend: PropTypes.func
 };
