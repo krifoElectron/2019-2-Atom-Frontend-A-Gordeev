@@ -5,14 +5,16 @@ import { Hat } from '../../components/Hat/Hat';
 import { ChatContainer } from '../../containers/ChatContainer/ChatContainer';
 import { NewMessageButton } from '../../buttons/NewMessageButton/NewMessageButton';
 
-export const ChatsPage = ({ onClick }) => {
+export const ChatsPage = ({ onClick, userId }) => {
+  console.log('userId', userId);
   const [chats, setChats] = useState([
-    { chatId: 5, date: '', isGroupChat: false, lastMessage: '', name: 'cneutron', title: 'aa' },
+    { chatId: 0, date: '', isGroupChat: false, lastMessage: '', name: '', title: '' },
   ]);
   useEffect(() => {
-    fetch(`http://localhost:3000/chats/chat_list/?user_id=${17}`)
+    fetch(`http://localhost:3000/chats/chat_list/?user_id=${userId}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.chats)
         setChats(data.chats);
       });
   }, []);
@@ -28,8 +30,10 @@ export const ChatsPage = ({ onClick }) => {
 
 ChatsPage.defaultProps = {
   onClick: () => {},
+  userId: ''
 };
 
 ChatsPage.propTypes = {
   onClick: PropTypes.func,
+  userId: PropTypes.string
 };

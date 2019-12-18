@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 
 import { Hat } from '../../components/Hat/Hat';
 import { MessageContainer } from '../../containers/MessageContainer/MessageContainer';
@@ -10,23 +10,24 @@ import { OptionsButton } from '../../buttons/OptionsButton/OptionsButton';
 
 import styles from '../../components/App/app.module.scss';
 import AvatarIcon from '../../img/avatar.jpeg';
-import { getIndexByChathId } from '../../utils/chats/indexById';
+// import { getIndexByChathId } from '../../utils/chats/indexById';
 
 export const OneChatPage = ({ addMessage, match }) => {
-	const [chats, setChats] = useState([
-		{ chatId: 5, date: '', isGroupChat: false, lastMessage: '', name: 'cneutron', title: 'aa' },
+	const [messagesInfo, setMessagesInfo] = useState([
+		{ userId: 1, date: '', isGroupChat: false, lastMessage: 'z', name: 'x', title: 'y' },
 	]);
 	useEffect(() => {
-		fetch(`http://localhost:3000/chats/chat_list/?user_id=${17}`)
+		const { chatId } = match.params;
+		fetch(`http://localhost:3000/chats/chat_page/?chat_id=${chatId}&user_id=${messagesInfo.userId}`)
 			.then((res) => res.json())
 			.then((data) => {
-				setChats(data.chats);
+				setMessagesInfo(data);
 			});
 	}, []);
 
-	const chatIndex = getIndexByChathId(+match.params.chatId);
-	const { messages, interlocutor } = chats[chatIndex];
-	console.log({ chatIndex });
+	// const chatIndex = getIndexByChathId(+match.params.chatId);
+	const { messages, interlocutor } = messagesInfo;
+	// chats[chatIndex];
 
 	return (
 		<div className={styles.mainContainer}>
@@ -51,7 +52,7 @@ export const OneChatPage = ({ addMessage, match }) => {
 				}}
 			/>
 			<MessageContainer messages={messages} />
-			<FormInput chatIndex={chatIndex} addMessage={addMessage} />
+			<FormInput addMessage={addMessage} />
 		</div>
 	);
 };
