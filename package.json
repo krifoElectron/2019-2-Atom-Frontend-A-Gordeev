@@ -21,6 +21,7 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+		"serialize-javascript": ">=2.1.1",
     "@wemake-services/stylelint-config-scss": "^0.1.4",
     "check-engine": "^1.8.0",
     "eslint": "^6.6.0",
