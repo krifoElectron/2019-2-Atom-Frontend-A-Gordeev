@@ -9,8 +9,8 @@ import styles from './messageContainer.module.scss';
 export function MessageContainer({ messages }) {
   return (
     <div className={styles.container}>
-      {messages.map(({ text, addedAt }) => {
-        return <MessageElement text={text} date={convertDateToTime(addedAt)} key={addedAt} toMe={true}/>;
+      {messages.map(({ text, addedAt, toMe}) => {
+        return <MessageElement text={text} date={convertDateToTime(addedAt)} toMe={toMe} key={addedAt}/>;
       })}
     </div>
   );

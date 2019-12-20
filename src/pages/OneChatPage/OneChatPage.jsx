@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 
 import { Hat } from '../../components/Hat/Hat';
 import { MessageContainer } from '../../containers/MessageContainer/MessageContainer';
@@ -34,7 +34,8 @@ export const OneChatPage = ({ addMessage, match, userId }) => {
 	const pollItems = () => {
 		console.log('inter');
 		const { chatId } = match.params;
-		fetch(`http://localhost:3000/chats/chat_page/?chat_id=${chatId}&user_id=${messagesInfo.userId}`)
+		console.log(userId);
+		fetch(`http://localhost:3000/chats/chat_page/?chat_id=${chatId}&user_id=${userId}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setMessagesInfo(data);
@@ -42,7 +43,7 @@ export const OneChatPage = ({ addMessage, match, userId }) => {
 			.catch((e) => console.log(e));
 	  }
 
-	  
+
 
 	// const chatIndex = getIndexByChathId(+match.params.chatId);
 	// chats[chatIndex];

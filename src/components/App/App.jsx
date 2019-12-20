@@ -13,10 +13,10 @@ export function App() {
 		{ userId: '', email: '', firstName: '', lastName: '', username: '', avatar: '' },
 	  ]);
 	  useEffect(() => {
-		fetch(`http://localhost:3000/profile/profile?user_id=${2}`)
+		fetch(`http://localhost:3000/profile/profile?user_id=${1}`)
 		  .then((res) => res.json())
 		  .then((data) => {
-			console.log(data, 'asd')
+			console.log(data, 'asd');
 			setUser(data);
 		  })
 		  .catch((e) => {
@@ -26,7 +26,7 @@ export function App() {
 	  console.log(user.userId);
 
 		if (!user.userId) {
-			return <div>Загрузка</div>
+			return <div>Загрузка</div>;
 		}
 
 	return (
