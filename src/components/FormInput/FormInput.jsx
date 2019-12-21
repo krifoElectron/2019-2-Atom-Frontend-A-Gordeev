@@ -1,55 +1,81 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
+
 import { AttachButton } from '../../buttons/AttachButton/AttachButton';
+import { CloseButton } from './../../buttons/CloseButton/CloseButton';
 
 import styles from './formInput.module.scss';
 
-export function FormInput({ chatId, userId, onSend }) {
+export function FormInput({ chatId, userId, onSend, forwardRef }) {
   const [inputText, setInputText] = useState('');
+  const [geolocation, setGeolocation] = useState({ latitude: null, longitude: null });
 
-  const sendMessage = async (text) => {
+  const sendMessage = async (text, attachment) => {
     console.log(userId);
-    await fetch(`http://localhost:3000/chats/send_message/`, {
+    console.log(geolocation);
+    await fetch('/chats/send_message/', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({user_id: userId, chat_id: chatId, text})
+      body: JSON.stringify({ user_id: userId, chat_id: chatId, text, attachment }),
     })
-    .then((res) => res.json())
-		.then((data) => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
       });
   };
 
   return (
-    <form
-      className={styles.formInput}
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (inputText !== '') {
-          sendMessage(inputText);
-          onSend()
-          // sendMessageToLocalStorage(inputText, chatIndex);
-          // addMessage(inputText);
-          setInputText('');
-        }
-      }}
-    >
-      <input
-        type="text"
-        value={inputText}
-        onChange={(event) => {
-          const { target } = event;
-          setInputText(target.value);
+    <>
+      <form
+        className={styles.formInput}
+        onSubmit={(e) => {
+          e.preventDefault();
+          if (inputText !== '') {
+            const attachment = { type: 'geolocation', ...geolocation };
+            sendMessage(inputText, attachment);
+            onSend();
+            // sendMessageToLocalStorage(inputText, chatIndex);
+            // addMessage(inputText);
+            setInputText('');
+            setGeolocation({ latitude: null, longitude: null });
+          }
         }}
-        placeholder="Введите сообщеине"
-        className={styles.input}
-      />
-      <AttachButton />
-    </form>
+      >
+        <input
+          ref={forwardRef}
+          type="text"
+          value={inputText}
+          onChange={(event) => {
+            const { target } = event;
+            target.scrollIntoView(false);
+            setInputText(target.value);
+          }}
+          placeholder="Введите сообщеине"
+          className={styles.input}
+        />
+        <AttachButton setGeolocation={(latitude, longitude) => setGeolocation({ latitude, longitude })} />
+      </form>
+      {geolocation.longitude && (
+        <div className={styles.attachContainer}>
+          <div className={styles.closeButton}>
+            <CloseButton onClick={() => setGeolocation({ latitude: null, longitude: null })} />
+          </div>
+          <YMaps>
+            <div>
+              <Map defaultState={{ center: [geolocation.latitude, geolocation.longitude], zoom: 13 }}>
+                <Placemark geometry={[geolocation.latitude, geolocation.longitude]} />
+              </Map>
+              {/* <Placemark geometry={[latitude, longitude]} /> */}
+            </div>
+          </YMaps>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -76,5 +102,5 @@ FormInput.defaultProps = {
 FormInput.propTypes = {
   chatId: PropTypes.string,
   // addMessage: PropTypes.func,
-  onSend: PropTypes.func
+  onSend: PropTypes.func,
 };

@@ -9,8 +9,17 @@ import styles from './messageContainer.module.scss';
 export function MessageContainer({ messages }) {
   return (
     <div className={styles.container}>
-      {messages.map(({ text, addedAt, toMe}) => {
-        return <MessageElement text={text} date={convertDateToTime(addedAt)} toMe={toMe} key={addedAt}/>;
+      {messages.map(({ text, addedAt, toMe, latitude, longitude }) => {
+        return (
+          <MessageElement
+            text={text}
+            date={convertDateToTime(addedAt)}
+            toMe={toMe}
+            key={addedAt}
+            latitude={latitude}
+            longitude={longitude}
+          />
+        );
       })}
     </div>
   );
