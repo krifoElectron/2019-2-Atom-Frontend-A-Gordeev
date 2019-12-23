@@ -14,23 +14,38 @@ import styles from '../../components/App/app.module.scss';
 import AvatarIcon from '../../img/avatar.jpeg';
 
 export const OneChatPage = ({ addMessage, match, userId }) => {
+  const [voices, setVoices] = useState([]);
+  // const inputEl = useRef(null);
+  // const [messagesInfo, setMessagesInfo] = useState({});
   const inputEl = useRef(null);
+  const oldMessages = useRef([]);
   const [messagesInfo, setMessagesInfo] = useState({});
   const [startPolling, stopPolling] = usePolling({
     url: `/chats/chat_page/?chat_id=${match.params.chatId}&user_id=${userId}`,
     callback: (data) => {
-      // if (!_.isEqual(messagesInfo, data)) {
-      let oldData;
-      setMessagesInfo((old) => {
-        oldData = old;
-        return data;
-      });
-      if (!_.isEqual(oldData, data)) {
+      if (!_.isEqual(oldMessages.current, data)) {
+        setMessagesInfo(data);
+
+        oldMessages.current = data;
         inputEl.current.scrollIntoView(false);
       }
-      // }
     },
   });
+  // const [startPolling, stopPolling] = usePolling({
+  //   url: `/chats/chat_page/?chat_id=${match.params.chatId}&user_id=${userId}`,
+  //   callback: (data) => {
+  //     // if (!_.isEqual(messagesInfo, data)) {
+  //     let oldData;
+  //     setMessagesInfo((old) => {
+  //       oldData = old;
+  //       return data;
+  //     });
+  //     if (!_.isEqual(oldData, data)) {
+  //       inputEl.current.scrollIntoView(false);
+  //     }
+  //     // }
+  //   },
+  // });
 
   useEffect(() => {
     startPolling();
@@ -62,13 +77,16 @@ export const OneChatPage = ({ addMessage, match, userId }) => {
           );
         }}
       />
-      <MessageContainer messages={messages} />
+      <MessageContainer messages={messages} voices={voices} />
       <FormInput
         forwardRef={inputEl}
         addMessage={addMessage}
         chatId={match.params.chatId}
         userId={userId}
         onSend={startPolling}
+        addVoice={(newVoice) => {
+          setVoices([...voices, newVoice]);
+        }}
       />
     </div>
   );

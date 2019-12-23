@@ -8,7 +8,7 @@ import { ReadMessageIcon } from '../ReadMessageIcon/ReadMessageIcon';
 import styles from './messageElement.module.scss';
 
 export function MessageElement({ date, text, toMe, latitude, longitude }) {
-  console.log(latitude, longitude);
+  // console.log(latitude, longitude);
 
   return (
     <div
@@ -20,7 +20,6 @@ export function MessageElement({ date, text, toMe, latitude, longitude }) {
       {latitude ? (
         <YMaps>
           <div>
-            {text}
             <Map defaultState={{ center: [latitude, longitude], zoom: 13 }}>
               <Placemark geometry={[latitude, longitude]} />
             </Map>
@@ -28,14 +27,14 @@ export function MessageElement({ date, text, toMe, latitude, longitude }) {
           </div>
         </YMaps>
       ) : (
-        <>
-          <div className={styles.messText}>{text}</div>
-          <div className={styles.bottomBlock}>
-            <div className={styles.messDate}>{date}</div>
-            <ReadMessageIcon />
-          </div>
-        </>
+        <></>
       )}
+
+      <div className={styles.messText}>{text}</div>
+      <div className={styles.bottomBlock}>
+        <div className={styles.messDate}>{date}</div>
+        <ReadMessageIcon />
+      </div>
     </div>
   );
 }

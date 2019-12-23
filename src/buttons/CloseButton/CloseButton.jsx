@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './closeButton.module.scss';
-
 import { ReactComponent as Close } from './close.svg';
 
 export function CloseButton({ onClick }) {

@@ -5,21 +5,26 @@ import { ReactComponent as Clip } from './clip.svg';
 
 import styles from './attachButton.module.scss';
 
-export function AttachButton({ setGeolocation }) {
+export function AttachButton({ setGeolocation, setImage }) {
   const [visible, setVisible] = useState(false);
 
   const attachTypes = [
     {
       title: 'my geolocation',
       onClick: () => {
-        const position = navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition((position) => {
           console.log(position);
           console.log(position.coords.latitude, position.coords.longitude);
           setGeolocation(position.coords.latitude, position.coords.longitude);
         });
       },
     },
-    { title: 'photo' },
+    {
+      title: 'photo',
+      onClick: () => {
+        setImage();
+      },
+    },
   ];
 
   return (

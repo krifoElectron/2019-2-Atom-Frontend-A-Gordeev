@@ -1,3 +1,5 @@
+$attach-text-color: rgb(23, 224, 53);
+
 .input[type='submit'] {
   visibility: collapse;
 }
@@ -23,4 +25,12 @@
   width: 12px;
   position: relative;
   left: 308px;
+}
+
+.photoText {
+  color: $attach-text-color;
+}
+
+.attachImg {
+  width: 50px;
 }
