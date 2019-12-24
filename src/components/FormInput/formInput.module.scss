@@ -1,3 +1,6 @@
+$attach-text-color: rgb(43, 163, 61);
+$drop-area-bg-color: rgb(241, 156, 187);
+
 .input[type='submit'] {
   visibility: collapse;
 }
@@ -13,4 +16,27 @@
 .formInput {
   width: 100%;
   display: flex;
+}
+
+.attachContainer {
+  position: static;
+}
+
+.closeButton {
+  width: 12px;
+  position: relative;
+  left: 308px;
+}
+
+.photoText {
+  color: $attach-text-color;
+}
+
+.attachImg {
+  height: 70px;
+}
+
+.dropArea {
+  background-color: $drop-area-bg-color;
+  height: 70px;
 }

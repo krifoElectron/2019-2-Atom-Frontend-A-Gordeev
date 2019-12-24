@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import { Hat } from '../../components/Hat/Hat';
@@ -10,12 +10,23 @@ import { OptionsButton } from '../../buttons/OptionsButton/OptionsButton';
 
 import styles from '../../components/App/app.module.scss';
 import AvatarIcon from '../../img/avatar.jpeg';
-import {getIndexByChathId} from '../../utils/chats/indexById';
 
-export const OneChatPage = ({ addMessage, chats, match }) => {
-	const chatIndex = getIndexByChathId(+match.params.chatId, chats);
-	const { messages, interlocutor } = chats[chatIndex];
-	console.log({chatIndex});
+export const OneChatPage = ({ addMessage, match }) => {
+  const [voices, setVoices] = useState([]);
+  const inputEl = useRef(null);
+  const [messagesInfo, setMessagesInfo] = useState({});
+
+  const update = () => {
+    const messages = JSON.parse(localStorage.getItem(`messageOfChat${match.params.chatId}`));
+    setMessagesInfo(messages);
+  };
+
+  useEffect(() => {
+    const messages = JSON.parse(localStorage.getItem(`messageOfChat${match.params.chatId}`));
+    setMessagesInfo(messages);
+  }, [match.params.chatId]);
+
+  const { messages, interlocutor } = messagesInfo;
 
   return (
     <div className={styles.mainContainer}>
@@ -23,7 +34,7 @@ export const OneChatPage = ({ addMessage, chats, match }) => {
         leftComponent={() => <BackButton />}
         centerComponent={() => (
           <div className={styles.centerBlock}>
-            <img className={styles.avatar} src={AvatarIcon} alt='avatar'/>
+            <img className={styles.avatar} src={AvatarIcon} alt="avatar" />
             <div className={styles.nameAndMess}>
               <div>{interlocutor}</div>
               <div className={styles.last}>был 5 часов назад</div>
@@ -39,24 +50,26 @@ export const OneChatPage = ({ addMessage, chats, match }) => {
           );
         }}
       />
-      <MessageContainer messages={messages} />
-      <FormInput chatIndex={chatIndex} addMessage={addMessage} />
+      <MessageContainer messages={messages} voices={voices} />
+      <FormInput
+        updateMessages={update}
+        forwardRef={inputEl}
+        chatId={match.params.chatId}
+        userId={1}
+        addVoice={(newVoice) => {
+          setVoices([...voices, newVoice]);
+        }}
+      />
     </div>
   );
 };
 
 OneChatPage.defaultProps = {
-  messages: [],
   addMessage: () => {},
-  comeBackToChats: () => {},
-  interlocutor: '',
-	match: {params: {chatId: 123}}
+  match: { params: { chatId: 123 } },
 };
 
 OneChatPage.propTypes = {
-  messages: PropTypes.arrayOf(PropTypes.object),
   addMessage: PropTypes.func,
-  comeBackToChats: PropTypes.func,
-  interlocutor: PropTypes.string,
-	match: PropTypes.checkPropTypes()
+  match: PropTypes.checkPropTypes(),
 };

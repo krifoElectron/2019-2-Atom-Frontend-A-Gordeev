@@ -1,0 +1,23 @@
+$bg-color: rgb(255, 255, 255);
+
+.dropdown {
+  left: 0;
+  padding-top: 4px;
+  position: absolute;
+  top: 100%;
+  background-color: $bg-color;
+  z-index: 9999;
+  height: 200px;
+  width: 200px;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.dropdown:hover,
+.dropdown:focus {
+  .dropdown-content {
+    display: block;
+  }
+}
