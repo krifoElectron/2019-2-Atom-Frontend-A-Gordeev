@@ -7,7 +7,6 @@ import { SearchButton } from '../../buttons/SearchButton/SearchButton';
 import styles from '../App/app.module.scss';
 
 export function Hat({ leftComponent, centerComponent, rightComponent }) {
-  console.log(200000);
   return (
     <div className={styles.hat}>
       {leftComponent()}

@@ -2,7 +2,7 @@ $message-element-bg-color: rgb(255, 223, 207);
 $message-element-text-color: rgb(0, 0, 0);
 $border-color: rgb(255, 223, 207);
 
-.messageElement {
+.messageElementRight {
   background-color: $message-element-bg-color;
   border-radius: 5px;
   margin: 10px 12px 10px 10px;
@@ -24,7 +24,30 @@ $border-color: rgb(255, 223, 207);
   }
 }
 
+.messageElementLeft {
+  background-color: $message-element-bg-color;
+  border-radius: 5px;
+  margin: 10px 12px 10px 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  position: relative;
+  max-width: 60%;
+  color: $message-element-text-color;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: -12px;
+    bottom: 0;
+    border: 7px solid transparent;
+    border-right: 9px solid $border-color;
+  }
+}
+
 .messText {
+  margin-top: 7px;
   align-self: flex-end;
   margin-right: 20px;
   word-break: break-all;
@@ -42,18 +65,34 @@ $border-color: rgb(255, 223, 207);
   font-size: 12px;
 }
 
-.animation {
+.animationRight {
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
-  animation-name: slidein;
+  animation-name: slideinRight;
 }
 
-@keyframes slidein {
+@keyframes slideinRight {
   from {
     margin-right: 40%;
   }
 
   to {
     margin-right: 12px;
+  }
+}
+
+.animationLeft {
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-name: slideinLeft;
+}
+
+@keyframes slideinLeft {
+  from {
+    margin-left: 40%;
+  }
+
+  to {
+    margin-left: 12px;
   }
 }

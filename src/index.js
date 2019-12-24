@@ -6,54 +6,86 @@ import './styles/globalStyles.scss';
 import { App } from './components/App/App';
 
 localStorage.clear();
+
 localStorage.setItem(
-	'messengerState',
-	JSON.stringify({
-		chats: [
-			{
-				id: 123,
-				interlocutor: 'Bender',
-				messages: [
-					{
-						direction: 'fromMe',
-						text: 'ololo',
-						date: '2019-10-22T21:50:03.113Z',
-						isRead: true,
-					},
-					{
-						direction: 'fromMe',
-						text: 'asdf',
-						date: '2019-10-22T22:12:43.113Z',
-						isRead: true,
-					},
-				],
-			},
-			{
-				id: 345,
-				interlocutor: 'Homer',
-				messages: [
-					{
-						direction: 'fromMe',
-						text: 'urt',
-						date: '2019-10-23T21:50:03.113Z',
-						isRead: true,
-					},
-					{
-						direction: 'fromMe',
-						text: 'Ita',
-						date: '2019-10-25T22:12:43.113Z',
-						isRead: true,
-					},
-				],
-			},
-		],
-		profile: {
-			name: 'Arsenii',
-			constats: [],
-		},
-	}),
+  'userInfo',
+  JSON.stringify({
+    id: 1,
+  }),
 );
 
-const initialState = JSON.parse(localStorage.getItem('messengerState'));
+localStorage.setItem(
+  'chatUser1',
+  JSON.stringify({
+    chats: [
+      {
+        name: 'Bender',
+        chatId: 1,
+        lastMessage: 'asdf',
+        date: 'Tue Dec 24 2019 01:41:46 GMT+0300 (Москва, стандартное время)',
+      },
+      {
+        name: 'Homer',
+        chatId: 2,
+        lastMessage: 'oq',
+        date: 'Tue Dec 24 2019 02:41:46 GMT+0300 (Москва, стандартное время)',
+      },
+    ],
+  }),
+);
 
-render(<App initialState={initialState} />, document.getElementById('root'));
+localStorage.setItem(
+  'messageOfChat1',
+  JSON.stringify({
+    messages: [
+      {
+        text: 'af093',
+        addedAt: 'Tue Dec 23 2019 22:11:46 GMT+0300 (Москва, стандартное время)',
+        toMe: false,
+        latitude: '',
+        longitude: '',
+        attachType: '',
+        url: '',
+      },
+      {
+        text: 'asdf',
+        addedAt: 'Tue Dec 24 2019 02:41:46 GMT+0300 (Москва, стандартное время)',
+        toMe: false,
+        latitude: '',
+        longitude: '',
+        attachType: '',
+        url: '',
+      },
+    ],
+    interlocutor: 'Bender',
+  }),
+);
+
+localStorage.setItem(
+  'messageOfChat2',
+  JSON.stringify({
+    messages: [
+      {
+        text: 'KO91',
+        addedAt: 'Tue Dec 23 2019 23:37:46 GMT+0300 (Москва, стандартное время)',
+        toMe: false,
+        latitude: '',
+        longitude: '',
+        attachType: '',
+        url: '',
+      },
+      {
+        text: 'oq',
+        addedAt: 'Tue Dec 24 2019 02:41:46 GMT+0300 (Москва, стандартное время)',
+        toMe: false,
+        latitude: '',
+        longitude: '',
+        attachType: '',
+        url: '',
+      },
+    ],
+    interlocutor: 'Homer',
+  }),
+);
+
+render(<App />, document.getElementById('root'));
