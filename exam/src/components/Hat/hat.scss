@@ -1,0 +1,11 @@
+$bg-color: rgb(250, 245, 253);
+
+.hat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $bg-color;
+  height: 70px;
+  width: 100%;
+  font-size: 25px;
+}

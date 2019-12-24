@@ -1,0 +1,16 @@
+$bg-color: rgb(254, 254, 254);
+$border-color: rgb(240, 240, 240);
+
+.weather-element {
+  box-sizing: border-box;
+  background-color: $bg-color;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $border-color;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 250px;
+  padding: 10px 25px;
+  margin: 15px;
+}
