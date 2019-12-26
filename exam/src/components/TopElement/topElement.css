@@ -1,0 +1,32 @@
+.top-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 180px;
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  border-color: rgb(235, 235, 235);
+}
+
+.region {
+  font-size: 40px;
+}
+
+.city {
+  font-size: 30px;
+}
+
+.weather {
+  display: flex;
+  font-size: 55px;
+}
+
+.temperature {
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 60px;
+  height: 60px;
+}

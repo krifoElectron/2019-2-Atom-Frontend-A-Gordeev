@@ -1,0 +1,7 @@
+.add-button {
+  align-self: flex-end;
+  margin: 10px 50px 15px 0;
+  position: sticky;
+  cursor: pointer;
+  bottom: 30px;
+}

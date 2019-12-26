@@ -1,0 +1,48 @@
+.detail-page {
+  color: rgb(145, 145, 145);
+  width: 800px;
+  background-color: rgb(250, 248, 248);
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 35px;
+  padding: 10px;
+}
+
+.detail-weather {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  width: 100%;
+  padding-left: 35px;
+
+
+}
+
+.detail-weather .temperature {
+	font-size: 70px;
+}
+
+.detail-weather .celsius {
+	font-size: 30px;
+	align-self: flex-start;
+}
+
+.detail-weather .description {
+	font-size: 35px;
+}
+
+.three-days {
+  font-size: 25px;
+  margin: 50px 0;
+  background-color: rgba(100, 200, 249, 0.5);
+  align-self: center;
+  width: 650px;
+  border-radius: 10px;
+  padding: 30px 30px 25px 30px;
+}
