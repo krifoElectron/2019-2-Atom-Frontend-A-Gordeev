@@ -6,7 +6,7 @@ export function BottomElement({ humidity, windDirection, windSpeed, minTemperatu
   return (
     <div className="bottom-element">
       <div>{`Humidity ${humidity}% | ${windDirection} | ${windSpeed} m/s`}</div>
-      <div>{`${maxTemperature}/${minTemperature}`}&deg;C</div>
+      <div>{`${maxTemperature} / ${minTemperature}`}&deg;C</div>
     </div>
   );
 }

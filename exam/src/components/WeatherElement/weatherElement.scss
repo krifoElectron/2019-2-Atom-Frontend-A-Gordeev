@@ -1,7 +1,9 @@
 $bg-color: rgb(254, 254, 254);
 $border-color: rgb(240, 240, 240);
+$text-color: rgb(145, 145, 145);
 
 .weather-element {
+  color: $text-color;
   box-sizing: border-box;
   background-color: $bg-color;
   border-style: solid;

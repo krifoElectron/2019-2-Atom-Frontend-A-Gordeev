@@ -19,5 +19,16 @@ $border-color: rgb(235, 235, 235);
 }
 
 .weather {
+  display: flex;
   font-size: 55px;
+}
+
+.temperature {
+  display: flex;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 60px;
+  height: 60px;
 }

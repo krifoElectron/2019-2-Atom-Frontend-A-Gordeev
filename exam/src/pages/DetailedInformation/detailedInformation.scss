@@ -1,0 +1,50 @@
+$detailed-bg-color: rgb(250, 248, 248);
+$text-color: rgb(145, 145, 145);
+$three-days-bg-color: rgba(100, 200, 249, 0.5);
+
+.detail-page {
+  color: $text-color;
+  width: 800px;
+  // height: 100%;
+  background-color: $detailed-bg-color;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 35px;
+  padding: 10px;
+}
+
+.detail-weather {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+
+  width: 100%;
+  padding-left: 35px;
+
+  .temperature {
+    font-size: 70px;
+  }
+  .celsius {
+    font-size: 30px;
+    align-self: flex-start;
+  }
+  .description {
+    font-size: 35px;
+  }
+}
+
+.three-days {
+  font-size: 25px;
+  margin: 50px 0;
+  background-color: $three-days-bg-color;
+  align-self: center;
+  width: 650px;
+  border-radius: 10px;
+  padding: 30px 30px 25px 30px;
+}
