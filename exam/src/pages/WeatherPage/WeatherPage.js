@@ -27,7 +27,6 @@ export function WeatherPage() {
 
   useEffect(() => {
     if (geolocation.latitude) {
-      // fetch(`https://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_KEY}`)
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${geolocation.latitude}&lon=${geolocation.longitude}&units=metric&appid=${API_KEY}`,
       )
@@ -38,8 +37,7 @@ export function WeatherPage() {
         .catch((err) => console.log(err));
     }
 
-    console.log('cities', cities);
-    fetch(`http://api.openweathermap.org/data/2.5/group?id=${cities}&units=metric&appid=${API_KEY}`)
+    fetch(`https://api.openweathermap.org/data/2.5/group?id=${cities}&units=metric&appid=${API_KEY}`)
       .then((res) => res.json())
       .then((data) => {
         setCityList(data.list);
@@ -65,7 +63,6 @@ export function WeatherPage() {
           <NewCityButton
             onClick={() => {
               setVisibleForm(!visibleForm);
-              console.log(visibleForm);
             }}
           />
         )}

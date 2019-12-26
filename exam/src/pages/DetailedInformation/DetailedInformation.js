@@ -51,17 +51,12 @@ export function DetailedInformation({ match }) {
       .then((data) => {
         const list = makeFiveDays(data.list);
         data.list = list;
-        console.log(data.list, 'lissss');
         setWeatherData(data);
 
-        console.log('dayNames');
-
         const dayNames = ['Today', 'Tomorrow', getDayOfWeek(data.list[2].dt_txt)];
-        console.log({ dayNames });
 
         setThreeDays(
           data.list.slice(0, 3).map((el, index) => {
-            console.log('asdfasdfasdfa');
             return {
               description: el.weather[0].description,
               minTemp: Math.round(el.main.temp_min),
@@ -77,14 +72,10 @@ export function DetailedInformation({ match }) {
 
   const city = weatherData.city ? weatherData.city.name : '';
   const { main, weather } = weatherData.list ? weatherData.list[0] : false;
-  // const { weather } = weatherData.list ? weatherData.list[0] : false;
   const minTemperature = main ? Math.round(main.temp_min) : 0;
   const maxTemperature = main ? Math.round(main.temp_max) : 0;
   const temperature = Math.round((minTemperature + maxTemperature) / 2);
-  console.log('w', weather);
   const description = main ? weather[0].description : '';
-
-  // const todayWeather = main ? weather[0].description : '';
 
   return (
     <div className="detail-page">

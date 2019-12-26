@@ -9,19 +9,15 @@ export function SearchForm({ onCityAdd }) {
   const [city, setCities] = useState({});
 
   useEffect(() => {
-    console.log('val', value);
     if (value) {
-      console.log('z');
       fetch(`https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=${API_KEY}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setCities(data);
         });
     }
   }, [value]);
 
-  console.log(city);
   return (
     <div className="search-form">
       <input placeholder="city" onChange={(event) => setValue(event.target.value)} value={value} />
