@@ -12,7 +12,7 @@ export function TopElement({ location, temperature, icon }) {
         <div className="city">{country}</div>
       </div>
       <div className="weather">
-        <img className="weather-icon" src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt="w" />
+        <img className="weather-icon" src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt="w" />
         <div className="temperature">{temperature}&deg;</div>
       </div>
     </div>
