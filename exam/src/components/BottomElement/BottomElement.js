@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './bottomElement.scss';
+import './bottomElement.css';
 
 export function BottomElement({ humidity, windDirection, windSpeed, minTemperature, maxTemperature }) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './searchElement.scss';
+import './searchElement.css';
 
 export function SearchElement() {
   return <div className="search-element"></div>;

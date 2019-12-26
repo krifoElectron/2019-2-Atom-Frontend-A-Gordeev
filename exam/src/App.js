@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { WeatherPage } from './pages/WeatherPage/WeatherPage';
 import { DetailedInformation } from './pages/DetailedInformation/DetailedInformation';
 
-import './app.scss';
+import './app.css';
 
 export function App() {
   return (

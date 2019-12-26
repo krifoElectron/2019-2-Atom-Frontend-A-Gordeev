@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './weatherDay.scss';
+import './weatherDay.css';
 
 export function WeatherDay({ day, description, minTemp, maxTemp, icon }) {
   console.log(icon, 'img');

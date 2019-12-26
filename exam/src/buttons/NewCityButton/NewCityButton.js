@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ReactComponent as NewCity } from './newCity.svg';
 
-import './newCityButton.scss';
+import './newCityButton.css';
 
 export function NewCityButton({ onClick }) {
   return (

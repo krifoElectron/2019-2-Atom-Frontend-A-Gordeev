@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './topElement.scss';
+import './topElement.css';
 
 export function TopElement({ location, temperature, icon }) {
   const { city, country } = location;

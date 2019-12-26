@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { TopElement } from '../TopElement/TopElement';
 import { BottomElement } from '../BottomElement/BottomElement';
 
-import './weatherElement.scss';
+import './weatherElement.css';
 
 const degToDirection = (deg) => {
   const index = Math.round(deg / 45);

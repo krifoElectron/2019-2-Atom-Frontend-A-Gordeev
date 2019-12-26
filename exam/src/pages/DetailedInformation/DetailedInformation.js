@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { WeatherDay } from '../../components/WeatherDay/WeatherDay';
 
-import './detailedInformation.scss';
+import './detailedInformation.css';
 
 import { API_KEY } from '../WeatherPage/WeatherPage';
 

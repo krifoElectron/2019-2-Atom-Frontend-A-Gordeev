@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { API_KEY } from '../../pages/WeatherPage/WeatherPage';
 
-import './searchForm.scss';
+import './searchForm.css';
 
 export function SearchForm({ onCityAdd }) {
   const [value, setValue] = useState('');

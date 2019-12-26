@@ -5,7 +5,7 @@ import { WeatherElement } from '../../components/WeatherElement/WeatherElement';
 import { NewCityButton } from '../../buttons/NewCityButton/NewCityButton';
 import { SearchForm } from '../../components/SearchForm/SearchForm';
 
-import './weatherPage.scss';
+import './weatherPage.css';
 
 export const API_KEY = 'aae465fc2af15dcf4b7a36033aae951f';
 

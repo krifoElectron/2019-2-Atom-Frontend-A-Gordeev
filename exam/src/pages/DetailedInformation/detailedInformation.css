@@ -1,12 +1,7 @@
-$detailed-bg-color: rgb(250, 248, 248);
-$text-color: rgb(145, 145, 145);
-$three-days-bg-color: rgba(100, 200, 249, 0.5);
-
 .detail-page {
-  color: $text-color;
+  color: rgb(145, 145, 145);
   width: 800px;
-  // height: 100%;
-  background-color: $detailed-bg-color;
+  background-color: rgb(250, 248, 248);
   display: flex;
   flex-direction: column;
 }
@@ -23,26 +18,29 @@ $three-days-bg-color: rgba(100, 200, 249, 0.5);
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-
   width: 100%;
   padding-left: 35px;
 
-  .temperature {
-    font-size: 70px;
-  }
-  .celsius {
-    font-size: 30px;
-    align-self: flex-start;
-  }
-  .description {
-    font-size: 35px;
-  }
+
+}
+
+.detail-weather .temperature {
+	font-size: 70px;
+}
+
+.detail-weather .celsius {
+	font-size: 30px;
+	align-self: flex-start;
+}
+
+.detail-weather .description {
+	font-size: 35px;
 }
 
 .three-days {
   font-size: 25px;
   margin: 50px 0;
-  background-color: $three-days-bg-color;
+  background-color: rgba(100, 200, 249, 0.5);
   align-self: center;
   width: 650px;
   border-radius: 10px;
